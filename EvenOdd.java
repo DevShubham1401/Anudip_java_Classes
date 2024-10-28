@@ -16,3 +16,8 @@ public class EvenOdd {
         sc.close();
     }
 }
+
+
+// Output: 
+// Enter number to check whether it is Even or Odd: 10
+// The number 10 is: Even

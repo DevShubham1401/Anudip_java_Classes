@@ -49,3 +49,26 @@ public class Swapping {
         sc.close();
     }
 }
+
+
+// Output:
+
+// ------------ Swapping without Temprory variable ------------
+
+// Enter first number: 5
+
+// Enter second number: 6
+
+// Before swapping first number is: 5, & second number is: 6
+// After swapping first number is: 6, & second number is: 5
+//         -------------------------------------------------
+
+//         ------------ Swapping with Temprory variable ------------
+
+// Enter first number: 40
+
+// Enter second number: 60
+
+// Before swapping first number is: 40, & second number is: 60
+// After swapping first number is: 60, & second number is: 40
+//         -------------------------------------------------
