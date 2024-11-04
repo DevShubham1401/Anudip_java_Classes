@@ -34,3 +34,7 @@ public class PalindromeNumber {
     }
     
 }
+
+// Output:-
+// Enter a number: 121
+// 121 is a palindrome.
