@@ -2,14 +2,14 @@
 import java.io.Serializable;
 
 // Employee Bean Class
-public class Employee implements Serializable {      
+public class EmployeeBeans implements Serializable {      
     // Fields for employee details
     private int empId, empAge;
     private String empName;
     private float empSalary;
 
     // Default constructor
-    public Employee() {}
+    public EmployeeBeans() {}
 
     
     // Getter and Setter for empId
@@ -48,13 +48,11 @@ public class Employee implements Serializable {
         this.empSalary = empSalary;
     }
 
-}
-
-// Main class to test the Employee class 
-public class EmployeeBeans {      
+    // Main method to test the Employee class
     public static void main(String[] args) {
-    
-        Employee employee = new Employee();
+        // Creating an Employee object using the parameterized constructor
+        EmployeeBeans employee = new EmployeeBeans();
+
         // Modify details using setter methods
         employee.setEmpId(2202305);
         employee.setEmpName("Shubham Chavan");
@@ -68,5 +66,15 @@ public class EmployeeBeans {
         System.out.println("Name: " + employee.getEmpName());
         System.out.println("Age: " + employee.getEmpAge());
         System.out.println("Salary: " + employee.getEmpSalary());
+
+
     }
 }
+
+
+// Output:-
+// Updated Employee Details using setters:
+// ID: 2202305
+// Name: Shubham Chavan
+// Age: 22
+// Salary: 999999.0
