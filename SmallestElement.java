@@ -32,9 +32,13 @@ public class SmallestElement {
 
     public static void main(String[] args) {
         
-        int[] arr1 = {64, 34, 25, 12, 22, 11, 90};
+        int[] arr1 = {10, 324, 45, 90, 98, 100};
         printArray(arr1);
         System.out.println("Smallest element: " + findSmallest(arr1));
         
     }
 }
+
+// Output
+// Array elements: 10 324 45 90 98 100 
+// Smallest element: 10
