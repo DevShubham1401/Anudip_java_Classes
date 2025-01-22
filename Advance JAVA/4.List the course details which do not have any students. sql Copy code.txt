@@ -1,0 +1,5 @@
+-- List the course details which do not have any students.
+SELECT c.*
+FROM Courses_Master c
+LEFT JOIN Admissions a ON c.cid = a.cid
+WHERE a.Sid IS NULL;

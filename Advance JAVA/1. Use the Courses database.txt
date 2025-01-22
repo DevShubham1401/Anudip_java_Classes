@@ -1,0 +1,69 @@
+-- Use the Courses database
+USE Courses;
+
+-- Create Courses Master Table
+CREATE TABLE Courses_Master (
+    cid INT PRIMARY KEY,
+    Cname VARCHAR(10) NOT NULL,
+    shift VARCHAR(20) CHECK (shift IN ('Morning', 'Evening')),
+    Fees SMALLMONEY NOT NULL
+);
+
+-- Create Students Master Table
+CREATE TABLE Students_Master (
+    Sid INT PRIMARY KEY,
+    Sname VARCHAR(10) NOT NULL,
+    Origin CHAR(1) CHECK (Origin IN ('L', 'F')), -- 'L' for Local, 'F' for Foreign
+    Type CHAR(1) CHECK (Type IN ('N', 'F')) -- 'N' for Normal, 'F' for Fast
+);
+
+-- Create Admissions Table
+CREATE TABLE Admissions (
+    Sid INT FOREIGN KEY REFERENCES Students_Master(Sid),
+    cid INT FOREIGN KEY REFERENCES Courses_Master(cid),
+    Doj DATETIME CHECK (Doj BETWEEN '2020-01-01' AND '2020-01-20'),
+    Grade CHAR(1) CHECK (Grade IN ('A', 'B', 'C'))
+);
+
+
+
+-- Insert into Courses_Master
+INSERT INTO Courses_Master (cid, Cname, shift, Fees)
+VALUES
+(1, 'Maths', 'Morning', 5000),
+(2, 'Science', 'Evening', 4000),
+(3, 'English', 'Morning', 3000),
+(4, 'History', 'Evening', 2000),
+(5, 'Physics', 'Morning', 6000);
+
+-- Insert into Students_Master
+INSERT INTO Students_Master (Sid, Sname, Origin, Type)
+VALUES
+(1, 'John', 'L', 'N'),
+(2, 'Jane', 'F', 'F'),
+(3, 'Mike', 'L', 'N'),
+(4, 'Anna', 'F', 'F'),
+(5, 'Smith', 'L', 'F');
+
+-- Insert into Admissions
+INSERT INTO Admissions (Sid, cid, Doj, Grade)
+VALUES
+(1, 1, '2020-01-05', 'A'),
+(2, 2, '2020-01-10', 'B'),
+(3, 3, '2020-01-15', 'C'),
+(4, 4, '2020-01-12', 'A'),
+(5, 5, '2020-01-18', 'B');
+
+
+-- List the number of students based on course-wise.
+SELECT c.Cname, COUNT(a.Sid) AS NoOfStudents
+FROM Courses_Master c
+LEFT JOIN Admissions a ON c.cid = a.cid
+GROUP BY c.Cname;
+
+
+-- List the student details where student origin is foreign and count exceeds 10.
+SELECT DISTINCT s.Sname
+FROM Students_Master s
+JOIN Admissions a ON s.Sid = a.Sid
+WHERE a.Grade IN ('A', 'B');

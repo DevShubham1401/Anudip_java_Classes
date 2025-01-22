@@ -1,0 +1,5 @@
+-- List the Student, Course, and Admissions details where a student has taken some course.
+SELECT s.Sname, c.Cname, a.Doj, a.Grade
+FROM Students_Master s
+JOIN Admissions a ON s.Sid = a.Sid
+JOIN Courses_Master c ON a.cid = c.cid;

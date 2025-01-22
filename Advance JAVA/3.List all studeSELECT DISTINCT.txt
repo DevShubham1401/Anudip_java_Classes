@@ -1,0 +1,5 @@
+-- List all studeSELECT DISTINCT s.Sname
+FROM Students_Master s
+JOIN Admissions a ON s.Sid = a.Sid
+WHERE a.Grade IN ('A', 'B');
+nt names where students' grades are 'A' and 'B'.

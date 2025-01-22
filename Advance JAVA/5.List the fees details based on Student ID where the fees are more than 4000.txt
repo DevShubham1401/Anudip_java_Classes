@@ -1,0 +1,5 @@
+SELECT s.Sid, c.Fees
+FROM Students_Master s
+JOIN Admissions a ON s.Sid = a.Sid
+JOIN Courses_Master c ON a.cid = c.cid
+WHERE c.Fees > 4000;
